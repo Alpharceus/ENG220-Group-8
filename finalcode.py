@@ -3,8 +3,8 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 # Load data
-final_data_file = "https://raw.githubusercontent.com/<your-repo>/main/final_data.csv"
-site_county_file = "https://raw.githubusercontent.com/<your-repo>/main/site_county_materials.csv"
+final_data_file = "https://raw.githubusercontent.com/Alpharceus/finalproject220group8/main/final_data.csv"
+site_county_file = "https://raw.githubusercontent.com/Alpharceus/finalproject220group8/main/site_county_materials.csv"
 
 final_data = pd.read_csv(final_data_file)
 site_county_data = pd.read_csv(site_county_file)
