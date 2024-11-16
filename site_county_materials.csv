@@ -1,0 +1,29 @@
+Local Site Name,County,Material
+PAINTED CANYON,Billings,PM2.5
+LOSTWOOD NWR,Burke,PM2.5
+BISMARCK RESIDENTIAL,Burleigh,PM2.5
+FARGO NW,Cass,PM2.5
+Lake Ilo,Dunn,PM2.5
+TRNP-NU,McKenzie,PM2.5
+BEULAH NORTH,Mercer,PM2.5
+HANNOVER,Oliver,PM2.5
+Ryder,Ward,PM2.5
+BISMARCK RESIDENTIAL,Burleigh,CO
+PAINTED CANYON,Billings,Ozone
+LOSTWOOD NWR,Burke,Ozone
+BISMARCK RESIDENTIAL,Burleigh,Ozone
+FARGO NW,Cass,Ozone
+Lake Ilo,Dunn,Ozone
+TRNP-NU,McKenzie,Ozone
+BEULAH NORTH,Mercer,Ozone
+HANNOVER,Oliver,Ozone
+Ryder,Ward,Ozone
+LOSTWOOD NWR,Burke,NO2
+BISMARCK RESIDENTIAL,Burleigh,NO2
+FARGO NW,Cass,NO2
+Lake Ilo,Dunn,NO2
+TRNP-NU,McKenzie,NO2
+BEULAH NORTH,Mercer,NO2
+6493 FIRST STREET SW,Mercer,NO2
+HANNOVER,Oliver,NO2
+Ryder,Ward,NO2
