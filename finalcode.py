@@ -24,7 +24,7 @@ material = st.selectbox("Select Material", material_options)
 # Select graph type
 graph_type = st.radio("Select Graph Type", ['Bar Graph', 'Line Graph'])
 
-# Filter data
+# Filter data based on selections
 filtered_data = filtered_data_df[
     (filtered_data_df['State'] == state) &
     (filtered_data_df['County'] == county) &
@@ -34,11 +34,20 @@ filtered_data = filtered_data_df[
 if filtered_data.empty:
     st.warning("No data available for the selected options.")
 else:
+    # Handle the Month/Year column
+    st.write("Preview of Month/Year Column:", filtered_data['Month/Year'].unique())
+    filtered_data['Month/Year'] = pd.to_datetime(filtered_data['Month/Year'], errors='coerce')
+
+    # Drop rows with invalid or missing Month/Year values
+    filtered_data = filtered_data.dropna(subset=['Month/Year'])
+
+    # Extract Year and Month for graphing
+    filtered_data['Year'] = filtered_data['Month/Year'].dt.year
+    filtered_data['Month'] = filtered_data['Month/Year'].dt.month
+
     # Bar Graph
     if graph_type == 'Bar Graph':
         st.subheader(f"Bar Graph on {material} in {county}, {state}")
-        filtered_data['Year'] = pd.to_datetime(filtered_data['Month/Year']).dt.year
-        filtered_data['Month'] = pd.to_datetime(filtered_data['Month/Year']).dt.month
         monthly_data = filtered_data.pivot(index='Year', columns='Month', values='Monthly Measurements')
 
         # Yearly average
@@ -57,8 +66,7 @@ else:
     # Line Graph
     else:
         st.subheader(f"Line Graph on {material} in {county}, {state}")
-        filtered_data['Date'] = pd.to_datetime(filtered_data['Month/Year'])
-        line_data = filtered_data.groupby('Date')['Monthly Measurements'].mean()
+        line_data = filtered_data.groupby('Month/Year')['Monthly Measurements'].mean()
 
         # Plot line graph
         fig, ax = plt.subplots(figsize=(12, 6))
